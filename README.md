@@ -9,14 +9,18 @@ dose= str((input ("Is this your first or second dose:\n")))
 if dose == "First" or "first" or "Second" or "second":
     if dose in ("First", "first"):
         print ("You have chosen First dose")
-    first= input("Enter your First name:\n")
-    while first.isalpha() is False:
-        print("Only text is allowed, please try again:")
-        first= input("Enter your First name:\n")
-    surname= input("Enter your Surname:\n")
-    while surname.isalpha() is False:
-        print("Only text is allowed, please try again:")
-        surname= input("Enter your Surname:\n")
+  ####################AJAY AND KUSHAL############################ PLEASE TEST THIS PART ASAP THE NAME PART PLEASE, This is q1 the NAME part, we only want it to accept letters not numbers
+    First = input("Enter your First Name:")
+while First.isalpha() is False:
+ print("Only text is allowed in name please try again:")
+ First= input("Enter your first name:")
+Last= input("Enter your last name:")
+while Last.isalpha() is False:
+  print("Only text is allowed please try again:")
+  Last= input("Enter your first name:")
+else:
+ print(First,Last)
+################################################ 
     
     print("Enter your date of birth (YYYY/MM/DD):")
     from datetime import datetime, date
