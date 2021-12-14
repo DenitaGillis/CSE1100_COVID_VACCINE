@@ -130,6 +130,11 @@ class Question:
 #.............................................................................................................................................................................
 
 #hey everyone i wrote this for Question 4, however it is running but i cant seem to get the if statement in the loop right please for some help
+class Question:
+     def __init__(self, prompt, answer):
+          self.prompt = prompt
+          self.answer = answer
+
 question_prompts = [
      "Are you Feeling Sick Today?\n(a) yes\ (b) no\n\n"
     "Have you ever received a dose of the Covid 19 Vaccine?\n(a) yes\(b) no\n\n",
@@ -142,7 +147,7 @@ question_prompts = [
     "In the last two months  received filarial prevention tablets\n(a) yes\(b) no\n\n",
     "In the last two months have you received a tetanus vaccine yellow fever vaccine\n(a) yes\ (b) no\n\n",
   ]
-
+# THE QUESTIONS AVBOVE ARE IN AN ARRAY WHICH IS THEN STORED IN A CLASS
 
 questions = [
      Question(question_prompts[0], "b"),
@@ -156,6 +161,11 @@ questions = [
      Question(question_prompts[8], "b"),
      
 ]
+
+# ABOVE IS SECOND ARRAY FOR THE QUESTION AND THE CORRECT ANSWER.
+
+# THE FOR LOOP STATEMENT BELOW IS ONLY RUNNING THE QUESTIONS AND ACCEPTING ANSWERS, I DONT KNOW HOW TO DO AN IF STATEMENT THAT SAY IFF QUESTION_PROMPT[0] IS YES EXIT PROGRAM
+# NEED SOME HELP
      
 
 def prevax_screen(questions):
