@@ -9,7 +9,7 @@ dose= str((input ("Is this your first or second dose:\n")))
 if dose == "First" or "first" or "Second" or "second":
     if dose in ("First", "first"):
         print ("You have chosen First dose")
-  ####################AJAY AND KUSHAL############################ PLEASE TEST THIS PART ASAP THE NAME PART PLEASE, This is q1 the NAME part, we only want it to accept letters not numbers
+  ####################AJAY AND KUSHAL################# PLEASE TEST THIS PART ASAP THE NAME PART PLEASE, This is q1 the NAME part, we only want it to accept letters not numbers
     First = input("Enter your First Name:")
 while First.isalpha() is False:
  print("Only text is allowed in name please try again:")
