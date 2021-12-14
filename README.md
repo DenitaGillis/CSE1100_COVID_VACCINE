@@ -10,17 +10,14 @@ if dose == "First" or "first" or "Second" or "second":
     if dose in ("First", "first"):
         print ("You have chosen First dose")
 
-    First = input("Enter your First Name:") PLEASE TEST THIS NAME PART 
+First = input("Enter your First Name:") #PLEASE TEST THIS NAME PART #IT HAS BEEN TESTED
 while First.isalpha() is False:
- print("Only text is allowed in name please try again:")
- First= input("Enter your first name:")
+    print("Only text is allowed in name, please try again:")
+    First= input("Enter your first name:")
 Last= input("Enter your last name:")
 while Last.isalpha() is False:
-  print("Only text is allowed please try again:")
-  Last= input("Enter your first name:")
-else:
- print(First,Last)
-
+    print("Only text is allowed please try again:")
+    Last= input("Enter your first name:")
     
     print("Enter your date of birth (YYYY/MM/DD):")
     from datetime import datetime, date
