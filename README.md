@@ -2,6 +2,56 @@
 
 #Hello everyone please enter your share of 
 the program here
+**#Question 1 Khushal/Ajay
+
+dose= str((input ("Is this your first or second dose:\n")))
+if dose == "First" or "first" or "Second" or "second":
+    if dose in ("First", "first"):
+        print ("You have chosen First dose")
+    first_name= str(input("Enter your First name:\n"))
+    surname= str(input("Enter your Surname:\n"))
+    
+    print("Enter your date of birth (YYYY/MM/DD):")
+    from datetime import datetime, date
+    def calculateAge(birthDate):
+        today = date.today()
+        age = today.year - birthDate.year - ((today.month, today.day) < (birthDate.month, birthDate.day))
+        return age
+
+    while True:
+        d=input()
+        if (int(d[5:7])>=13):
+            print("Please only enter months between 1 and 12:")
+        elif (int(d[5:7])<1):
+            print("Please only enter months between 1 and 12:")
+        elif (int(d[8:])<=0):
+            print("Please only enter days between 1 and 31:")
+        elif (int(d[8:])>31):
+            print("Please only enter days between 1 and 31:")
+        elif (int(d[5:7])==2) and (int(d[8:])>29):
+            print("Please only enter days between 1 and 29:")
+        else:
+            break
+    
+    year=d[0:4]
+    month=d[5:7]
+    day=d[8:]
+
+    print('Your age is:')
+    print(calculateAge(date(int(year),int(month),int(day))))
+
+    gender=str(input("Enter your sex (M/F):\n"))
+    race=str(input("Enter your Ethnicity:\n"))
+    address=str(input("Enter your Address:\n"))
+    region=input("Enter the region you are from:\n")
+    email=str(input("Enter your email:\n"))
+    cell_number=str((input("Enter your cell number:\n")))
+    
+if dose in ('Second', 'second'):
+    print ("You have chosen Second dose")
+    
+#FIRST DOSE PROGRAM
+
 **#Question Four (4)** David
 answers = list()
 age = int(input('How old are you? ')) #i will import the age variable that was set up just using this as reference.
