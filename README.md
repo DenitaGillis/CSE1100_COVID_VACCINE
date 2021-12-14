@@ -10,7 +10,7 @@ if dose == "First" or "first" or "Second" or "second":
     if dose in ("First", "first"):
         print ("You have chosen First dose")
 
-    First = input("Enter your First Name:")
+    First = input("Enter your First Name:") PLEASE TEST THIS NAME PART 
 while First.isalpha() is False:
  print("Only text is allowed in name please try again:")
  First= input("Enter your first name:")
