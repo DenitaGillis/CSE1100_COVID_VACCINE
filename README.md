@@ -2,7 +2,7 @@
 
 #Hello everyone please enter your share of 
 the program here
-**#Question 1 Khushal/Ajay
+**#Question 1 Khushal/Ajay**
 
 dose= str((input ("Is this your first or second dose:\n")))
 if dose == "First" or "first" or "Second" or "second":
