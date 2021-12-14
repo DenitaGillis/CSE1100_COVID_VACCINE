@@ -3,19 +3,20 @@
 #Hello everyone please enter your share of 
 the program here
 **#Question 1 Khushal/Ajay**
-def greet():
-    print("Welcome to COVAX")
-greet()
-# Added in by denita Gillis
+
+dose= str((input ("Is this your first or second dose:\n")))
 dose= str((input ("Is this your first or second dose:\n")))
 if dose == "First" or "first" or "Second" or "second":
     if dose in ("First", "first"):
         print ("You have chosen First dose")
-    first_name= str(input("Enter your First name:\n"))
-    surname= str(input("Enter your Surname:\n"))
-    
-  # The first half of the program need to validate what the user is entering. i am entering 5 as my first name and it is still running. Please fix immediately (denita Gillis)
-
+    first= input("Enter your First name:\n")
+    while first.isalpha() is False:
+        print("Only text is allowed, please try again:")
+        first= input("Enter your First name:\n")
+    surname= input("Enter your Surname:\n")
+    while surname.isalpha() is False:
+        print("Only text is allowed, please try again:")
+        surname= input("Enter your Surname:\n")
     
     print("Enter your date of birth (YYYY/MM/DD):")
     from datetime import datetime, date
@@ -57,6 +58,7 @@ if dose in ('Second', 'second'):
     print ("You have chosen Second dose")
     
 #FIRST DOSE PROGRAM
+
 
 **#Question Four (4)** David
 answers = list()
