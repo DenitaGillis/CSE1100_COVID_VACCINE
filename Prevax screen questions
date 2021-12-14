@@ -1,0 +1,40 @@
+class Question:
+     def __init__(self, prompt, answer):
+          self.prompt = prompt
+          self.answer = answer
+
+
+question_prompts = [
+     "Are you Feeling Sick Today?\n(a) yes\ (b) no\n\n"
+    "Have you ever received a dose of the Covid 19 Vaccine?\n(a) yes\(b) no\n\n",
+    "Do you have any form of Identification\n(a) yes\(b) no\n\n",
+    "Do you have a history of \n(a) Myocarditis\(b) Pericarditis\(c) Bleeding Disorders\n\n",
+    "Are you Currently Pregnant or Breastfeeding?\n(a) yes\(b) no\n\n",
+    "Do you suffer from any condition that have compromised Your immune system such as HIV/AIDS or TB\n(a) yes\(b) no\n\n",
+    "Have you undergone surgery recently?\n(a) yes\(b) no\n\n",
+    "Have you ever had an allergic reaction to another vaccine(other than COVID-19 vaccine) or an injectable medication?\n(a) yes\(b) no\n\n",
+    "In the last two months  received filarial prevention tablets\n(a) yes\(b) no\n\n",
+    "In the last two months have you received a tetanus vaccine yellow fever vaccine\n(a) yes\ (b) no\n\n",
+  ]
+
+
+questions = [
+     Question(question_prompts[0], "b"),
+     Question(question_prompts[1], "b"),
+     Question(question_prompts[2], "b"),
+     Question(question_prompts[3], "b"),
+     Question(question_prompts[4], "b"),
+     Question(question_prompts[5], "b"),
+     Question(question_prompts[6], "b"),
+     Question(question_prompts[7], "b"),
+     Question(question_prompts[8], "b"),    
+]
+     
+def prevax_screen(questions):
+     for question in questions:
+          answer = input(question.prompt)
+          if answer == question.answer:
+              print("okay")
+ 
+
+prevax_screen(questions)
