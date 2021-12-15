@@ -9,6 +9,36 @@ dose= str((input ("Is this your first or second dose:\n")))
 if dose == "First" or "first" or "Second" or "second":
     if dose in ("First", "first"):
         print ("You have chosen First dose")
+#################################################
+##Program Intro - Cassie
+intro = 'WELCOME TO COV-AL! \nThis program is a data collection and analysis model. \nIt collects patient demographics and medical history, then suggests a suitable vaccine based on the info you enter. \nPlease enter data as truthfully and as accurately as possible for best results.'
+intro = intro.center(300)
+print (intro,'\n\n')
+
+while True:
+  dose = input ('Lets get started.\nIs this your FIRST or SECOND dose of the vaccine?\n')
+  dose = dose.casefold() #makes it so that the input will not be case sensitive
+
+  first_txt = ['first','1st'] #creates a list of text/string that will be taken as valid if user choses "first" 
+  second_txt = ['second','2nd'] #creates a list of text/string that will be taken as valid if user chooses "second"
+ 
+  if any(x in dose for x in first_txt):
+    choice = 'first'
+    print ('You have selected that this is your FIRST dose')
+    break
+
+  elif any(x in dose for x in second_txt):
+    choice = 'second' 
+    print ('You have selected that this is your SECOND dose')
+    break
+
+  else:
+    print ('Invalid input, please try again') 
+
+print ('\n\n'choice) #this line is just to test the coice variable and can be disregarded or deleted
+
+###################################################################
+
 
     First = input("Enter your First Name:") #PLEASE TEST THIS NAME PART #IT HAS BEEN TESTED
     while First.isalpha() is False:
