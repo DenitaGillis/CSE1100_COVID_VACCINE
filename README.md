@@ -93,15 +93,14 @@ if dose in ('Second', 'second'):
 #############################################################################################################################################################
 # This is the code for questions 4 to 6. Done by Denita Gillis 
 
-
 import sys
 import random
 
 class Question:
      def __init__(self, prompt, answer):
           self.prompt = prompt
-          self.answer = answer  
-# This is a class function i use for the question prompt. the remaining pre vax question will be automatic promoted
+          self.answer = answer 
+  # this is a class function i use for the question prompt. the remaining pre vax question will be automatic promoted
 
 vaccine = []
 vaccine.append(["pfizer"])
@@ -109,7 +108,9 @@ vaccine.append(["moderna"])
 vaccine.append(["astra zeneca"])
 vaccine.append(["sputnik v"])
 vaccine.append(["janssen"])
-vaccine.append(["sinopharm"]) #Vaccines where place in a list for random choice based on the if statement at the end of the code
+vaccine.append(["sinopharm"]) 
+
+# Vaccines where place in a list for random choice based on the if statement at the end of the code
 
 first_dose_vaccine = random.choice(vaccine)
 
@@ -129,9 +130,9 @@ if Q1== "yes":
 else:
      print(" Let us move unto the next question")
                     
-Q2= input("Have you ever recieved a dose of the Covid")
+Q2= input("Have you ever recieved a dose of the Covid 19 vaccine")
 while Q2 !="yes" and Q2 !="no":
-      Q2= input("Are you feeling sick today?")
+      Q2= input("Have you ever recieved a dose of the covid 19 vaccine?")
 if Q2== "yes":
      print("Let me swtich over to the second dose terminal")
      sys.exit(123)
@@ -160,8 +161,8 @@ questions = [
      Question(question_prompts[7], "no"),
 ]
 
-# the score variable is use to determine if the person get the vaccine or not look at the if statements below
-# if statements needed to be independent if and not nested 
+# the score and age variable is use to determine if the person get the vaccine and the type
+
 
 def prevax_screen(questions):
      score = 0
@@ -171,18 +172,19 @@ def prevax_screen(questions):
                score += 1
      print("you got", score, "out of", len(questions))   
           
-     if score== 8: 
+     if age >=18 and age < 55 and score == 8: 
           print(" The vaccine you will be recieving today is:",first_dose_vaccine)
-     if score < 8 and score >= 5:
-          print("you are high risk candidate, you will recieve:", vaccine[1])    
-     if age >= 55 and score <= 8 and score > 6:
-          print(" Your age and answers make you a prime candidate for:", vaccine[4])
-
+     elif age >=18 and age < 55 and score < 8 and score >=5:
+               print("you are high risk candidate, you will recieve:", vaccine[1])
+     elif age >= 55 and score <=8 and score >=5:
+               print(" Your age and answers make you a prime candidate for:", vaccine[4])
      else:
-          print(" you do not meet the criteria")     
-     
+          print("Based on your answers you do not meet the criteria for covid-19 vaccination")  
+                   
 
 prevax_screen(questions)
+
+
 
 
 
