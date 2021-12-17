@@ -90,7 +90,8 @@ if dose in ('Second', 'second'):
     print ("You have chosen Second dose")
     
 ####################################################################################################################################
-###QUESTION 4 amended (David Constantine)
+QUESTION 4 amended (David Constantine)
+
 from time import sleep
 
 vaccines = ['1. AstraZeneca: ', '2. Pfizer: ', '3. Moderna: ', '4. Sinopharm: ', '5. Sputnik V ']
