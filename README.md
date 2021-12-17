@@ -189,7 +189,7 @@ prevax_screen(questions)
 
 
 ############################################################################################################################################################## 
-# Hmm. Second dose ig - Bhudram Singh
+# Hmm. Second dose
 # Code for Second Dosage
 
 #First or second dose prompt
