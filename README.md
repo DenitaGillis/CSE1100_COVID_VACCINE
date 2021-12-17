@@ -189,248 +189,265 @@ prevax_screen(questions)
 
 
 ############################################################################################################################################################## 
-#Hmm. Second dose ig
-#Code for Second Dosage
+# Hmm. Second dose ig
+# Code for Second Dosage
 
 #First or second dose prompt
-def dose() :
-    print("Is this your first or second dose of the Covid-19 Vaccine?")
-    doseNum = input("Enter '1' for 1st dose, '2' for 2nd dose, or '0' to exit: ")
-    doseValidate(doseNum)
     
-def doseValidate(doseNum) :
-    if doseNum == "1" or doseNum == "2" :
-        print("You entered",doseNum+".\nSo this is your",doseNum+"nd dosage?")
-        doseCheck = input("Enter 'y' for yes or any other character for no: ")
-        if doseCheck == "y" or doseCheck == "Y":
-            if doseNum == "1" :
-               print("Return to dose 1...")
+    def dose() :
+        print("Is this your first or second dose of the Covid-19 Vaccine?")
+        doseNum = input("Enter '1' for 1st dose, '2' for 2nd dose, or '0' to exit: ")
+        doseValidate(doseNum)
+    
+    def doseValidate(doseNum) :
+        if doseNum == "1" or doseNum == "2" :
+            print("You entered",doseNum+".\nSo this is your",doseNum+"nd dosage?")
+            doseCheck = input("Enter 'y' for yes or any other character for no: ")
+            if doseCheck == "y" or doseCheck == "Y":
+                if doseNum == "1" :
+                   print("Return to dose 1...")
+                else :
+                   print()
+                   input("Press Enter to proceed")
+                   commonSymptoms()
             else :
-               print()
-               input("Press Enter to proceed")
-               commonSymptoms()
+                print("Please choose again.")
+                dose()
+        elif doseNum == "0" :
+            print("Have a nice day.")
+            exit()
         else :
-            print("Please choose again.")
+            print("You entered an invalid character. Please choose again.")
             dose()
-    elif doseNum == "0" :
-        print("Have a nice day.")
-        exit()
-    else :
-        print("You entered an invalid character. Please choose again.")
-        dose()
         
 #Second dose questionnaire questions
 #1
 #List of common symptoms
-commonSymptomsList = {
-    1:"Pain",
-    2:"Redness",
-    3:"Swelling",
-    4:"Tiredness",
-    5:"Headache",
-    6:"Muscle pain",
-    7:"Chills",
-    8:"Fever",
-    9:"Nausea"
-}
+
+    commonSymptomsList = {
+        1:"Pain",
+        2:"Redness",
+        3:"Swelling",
+        4:"Tiredness",
+        5:"Headache",
+        6:"Muscle pain",
+        7:"Chills",
+        8:"Fever",
+        9:"Nausea"
+        }
 
 #Function displaying and inquiring if patient experienced any symptoms.
-def commonSymptoms() :
-    print("Have you experienced any of these common symptoms after taking your first dose of the vaccine?\n",commonSymptomsList)
-    commonSymptomsCheck = input("Enter 'y' for yes, 'n' for no, or '0' to exit: ")
-    commonSymptomsValidate(commonSymptomsCheck)
+    
+    def commonSymptoms() :
+        print("Have you experienced any of these common symptoms after taking your first dose of the vaccine?\n",commonSymptomsList)
+        commonSymptomsCheck = input("Enter 'y' for yes, 'n' for no, or '0' to exit: ")
+        commonSymptomsValidate(commonSymptomsCheck)
     
 #Function validating if patient has symptoms or not.
-def commonSymptomsValidate(commonSymptomsCheck) :
-    if commonSymptomsCheck == "y" or commonSymptomsCheck == "Y" or commonSymptomsCheck == "n" or commonSymptomsCheck == "N" :
-        if commonSymptomsCheck == "y" or commonSymptomsCheck == "Y" :
-            print()
-            commonSymptomsChoice()
+    
+    def commonSymptomsValidate(commonSymptomsCheck) :
+        if commonSymptomsCheck == "y" or commonSymptomsCheck == "Y" or commonSymptomsCheck == "n" or commonSymptomsCheck == "N" :
+            if commonSymptomsCheck == "y" or commonSymptomsCheck == "Y" :
+                print()
+                commonSymptomsChoice()
+            else :
+                print("You have no common symptoms")
+                input("Press enter to proceed.")
+                rareSideEffects()
+        elif commonSymptomsCheck == "0":
+            print("Have a nice day.")
+            exit()
         else :
-            print("You have no common symptoms")
-            input("Press enter to proceed.")
-            rareSideEffects()
-    elif commonSymptomsCheck == "0":
-        print("Have a nice day.")
-        exit()
-    else :
-        print("You entered an incorrect character. Please choose again.")
-        print()
-        input("Press Enter to proceed.")
-        commonSymptoms()
+            print("You entered an incorrect character. Please choose again.")
+            print()
+            input("Press Enter to proceed.")
+            commonSymptoms()
         
 #Function validating Common symptoms choices.
-def commonSymptomsChoice() :
-    print("Which of these symptions have you experienced after taking your first vaccine?\n",commonSymptomsList)
-    patientCommonSymptomsInt = input("Enter the numbers that corresponds to the symptoms: ")
-    patientCommonSymptoms = {}
-    i = 0
-    for i in patientCommonSymptomsInt :
-        isIInt = i.isdigit()
-        if not(isIInt) or int(i) < 1 :
-            print()
-            print("You entered incorrect character(s).\nPlease choose again.")
-            input("Press Enter to proceed.")
-            commonSymptomsChoice()
-        else :
-            patientCommonSymptoms[int(i)] = commonSymptomsList[int(i)]
-    print()
-    print("Are these symptoms correct?\n",patientCommonSymptoms)
-    commonSymptomsCheck = input("Enter 'y' for yes or any other character for no: ")
-    if commonSymptomsCheck == "y" or commonSymptomsCheck == "Y" :
-        input("Press enter to proceed.")
-        rareSideEffects()
-    else :
+
+    def commonSymptomsChoice() :
+        print("Which of these symptions have you experienced after taking your first vaccine?\n",commonSymptomsList)
+        patientCommonSymptomsInt = input("Enter the numbers that corresponds to the symptoms: ")
+        patientCommonSymptoms = {}
+        i = 0
+        for i in patientCommonSymptomsInt :
+            isIInt = i.isdigit()
+            if not(isIInt) or int(i) < 1 :
+                print()
+                print("You entered incorrect character(s).\nPlease choose again.")
+                input("Press Enter to proceed.")
+                commonSymptomsChoice()
+            else :
+                patientCommonSymptoms[int(i)] = commonSymptomsList[int(i)]
         print()
-        print("You entered an incorrect symptom. Please choose again.")
-        commonSymptomsChoice()
+        print("Are these symptoms correct?\n",patientCommonSymptoms)
+        commonSymptomsCheck = input("Enter 'y' for yes or any other character for no: ")
+        if commonSymptomsCheck == "y" or commonSymptomsCheck == "Y" :
+            input("Press enter to proceed.")
+            rareSideEffects()
+        else :
+            print()
+            print("You entered an incorrect symptom. Please choose again.")
+            commonSymptomsChoice()
 
 #2
 #List of Rare side effects.
-rareEffectsList = {
-    1:"Inflammation of the Heart or Pericardium",
-    2:"Inflammation of the Middle Tissue Heart Muscle",
-    3:"A Significant Type of Allergic Reaction called Anaphylaxis",
-    4:"A Hypersensitivity Reaction to a Drug or Medication"
-}
+
+    rareEffectsList = {
+        1:"Inflammation of the Heart or Pericardium",
+        2:"Inflammation of the Middle Tissue Heart Muscle",
+        3:"A Significant Type of Allergic Reaction called Anaphylaxis",
+        4:"A Hypersensitivity Reaction to a Drug or Medication"
+    }
 
 #Function displaying and inquiring if patient experienced any Rare Side Effects.
-def rareSideEffects() :
-    print("Have you experienced any of these rare side effects after taking your first dose of the vaccine?\n")
-    i = 0
-    for i in rareEffectsList :
-        print(i,".",rareEffectsList[i])
-    rareEffectsCheck = input("Enter 'y' for yes, 'n' for no, or '0' to exit: ")
-    rareEffectsValidate(rareEffectsCheck)
+
+    def rareSideEffects() :
+        print("Have you experienced any of these rare side effects after taking your first dose of the vaccine?\n")
+        i = 0
+        for i in rareEffectsList :
+            print(i,".",rareEffectsList[i])
+        rareEffectsCheck = input("Enter 'y' for yes, 'n' for no, or '0' to exit: ")
+        rareEffectsValidate(rareEffectsCheck)
     
 #Function validating if patient has side effects or not.
-def rareEffectsValidate(rareEffectsCheck) :
-    if rareEffectsCheck == "y" or rareEffectsCheck == "Y" or rareEffectsCheck == "n" or rareEffectsCheck == "N" :
-        if rareEffectsCheck == "y" or rareEffectsCheck == "Y" :
-            print()
-            rareEffectsChoice()
+
+    def rareEffectsValidate(rareEffectsCheck) :
+        if rareEffectsCheck == "y" or rareEffectsCheck == "Y" or rareEffectsCheck == "n" or rareEffectsCheck == "N" :
+            if rareEffectsCheck == "y" or rareEffectsCheck == "Y" :
+                print()
+                rareEffectsChoice()
+            else :
+                print("You have no rare side effects.")
+                input("Press enter to proceed.")
+                medicalConditions()
+        elif rareEffectsCheck == "0" :
+            print("Have a nice day.")
+            exit()
         else :
-            print("You have no rare side effects.")
-            input("Press enter to proceed.")
-            medicalConditions()
-    elif rareEffectsCheck == "0" :
-        print("Have a nice day.")
-        exit()
-    else :
-        print("You entered an incorrect character. Please choose again.")
-        print()
-        input("Press Enter to proceed.")
-        rareSideEffects()
+            print("You entered an incorrect character. Please choose again.")
+            print()
+            input("Press Enter to proceed.")
+            rareSideEffects()
         
 #Function validating rare side effects choices.
-def rareEffectsChoice() :
-    print("Which of these rare side effects have you experienced after taking your first vaccine?\n")
-    i = 0
-    for i in rareEffectsList :
-        print(i,".",rareEffectsList[i])
-    patientRareEffectsInt = input("Enter the numbers that corresponds to the symptoms: ")
-    patientRareEffects = {}
-    i = 0
-    for i in patientRareEffectsInt :
-        isIInt = i.isdigit()
-        if not(isIInt) or int(i) > 4 or int(i) < 1:
+
+    def rareEffectsChoice() :
+        print("Which of these rare side effects have you experienced after taking your first vaccine?\n")
+        i = 0
+        for i in rareEffectsList :
+            print(i,".",rareEffectsList[i])
+        patientRareEffectsInt = input("Enter the numbers that corresponds to the symptoms: ")
+        patientRareEffects = {}
+        i = 0
+        for i in patientRareEffectsInt :
+            isIInt = i.isdigit()
+            if not(isIInt) or int(i) > 4 or int(i) < 1:
+                print()
+                print("You entered incorrect character(s).\nPlease choose again.")
+                input("Press Enter to proceed.")
+                rareEffectsChoice()
+            else :
+                patientRareEffects[int(i)] = rareEffectsList[int(i)]
+        print()
+        print("Are these side effects correct?")
+        i = 0
+        for i in patientRareEffects :
+            print(i,".",patientRareEffects[i])
+        rareEffectsCheck = input("Enter 'y' for yes or any other character for no: ")
+        if rareEffectsCheck == "y" or rareEffectsCheck == "Y" :
+            input("Press enter to proceed.")
             print()
-            print("You entered incorrect character(s).\nPlease choose again.")
-            input("Press Enter to proceed.")
-            rareEffectsChoice()
+            medicalConditions()
         else :
-            patientRareEffects[int(i)] = rareEffectsList[int(i)]
-    print()
-    print("Are these side effects correct?")
-    i = 0
-    for i in patientRareEffects :
-        print(i,".",patientRareEffects[i])
-    rareEffectsCheck = input("Enter 'y' for yes or any other character for no: ")
-    if rareEffectsCheck == "y" or rareEffectsCheck == "Y" :
-        input("Press enter to proceed.")
-        print()
-        medicalConditions()
-    else :
-        print()
-        print("You entered an incorrect side effect. Please choose again.")
-        rareEffectsChoice()
+            print()
+            print("You entered an incorrect side effect. Please choose again.")
+            rareEffectsChoice()
 
 #3
-#List of conditions
-conditionsList = {
-    1:"Myocarditis",
-    2:"Pericarditis",
-    3:"Bleeding Disorders"
-}
+
+    #List of conditions
+    conditionsList = {
+        1:"Myocarditis",
+        2:"Pericarditis",
+        3:"Bleeding Disorders"
+    }
 
 #Function displaying and inquiring if patient experienced any of the listed conditions
-def medicalConditions() :
-    print("Have you developed any of the following conditions after taking the vaccine?\n",conditionsList)
-    conditionsCheck = input("Enter 'y' for yes, 'n' for no, or '0' to exit: ")
-    medicalConditionsValidate(conditionsCheck)
+
+    def medicalConditions() :
+        print("Have you developed any of the following conditions after taking the vaccine?\n",conditionsList)
+        conditionsCheck = input("Enter 'y' for yes, 'n' for no, or '0' to exit: ")
+        medicalConditionsValidate(conditionsCheck)
 
 #Function validating if patient has the conditions.
-def medicalConditionsValidate(conditionsCheck) :
-    if conditionsCheck == "y" or conditionsCheck == "Y" or conditionsCheck == "n" or conditionsCheck == "N" :
-        if conditionsCheck == "y" or conditionsCheck == "Y" :
-            print()
-            medicalConditionsChoice()
+
+    def medicalConditionsValidate(conditionsCheck) :
+        if conditionsCheck == "y" or conditionsCheck == "Y" or conditionsCheck == "n" or conditionsCheck == "N" :
+            if conditionsCheck == "y" or conditionsCheck == "Y" :
+                print()
+                medicalConditionsChoice()
+            else :
+                print("You have none of the conditions mentioned.")
+                input("Press enter to proceed")
+                print()
+                immuneCompromised()
+        elif conditionsCheck == "0":
+            print("Have a nice day.")
+            exit()
         else :
-            print("You have none of the conditions mentioned.")
+            print("You entered an incorrect character.\nPlease choose again.")
             input("Press enter to proceed")
             print()
-            immuneCompromised()
-    elif conditionsCheck == "0":
-        print("Have a nice day.")
-        exit()
-    else :
-        print("You entered an incorrect character.\nPlease choose again.")
-        input("Press enter to proceed")
-        print()
-        medicalConditions()
+            medicalConditions()
 
 #Function specifying which condition they have
-def medicalConditionsChoice() :
-    print("Which of the conditions have you experienced after taking the vaccine?\n",conditionsList)
-    patientConditionsInt = input("Enter the numbers that corresponds to the conditions: ")
-    patientConditions = {}
-    i = 0
-    for i in patientConditionsInt :
-        isIInt = i.isdigit()
-        if not(isIInt) or int(i) < 1 or int(i) > 3 :
+
+    def medicalConditionsChoice() :
+        print("Which of the conditions have you experienced after taking the vaccine?\n",conditionsList)
+        patientConditionsInt = input("Enter the numbers that corresponds to the conditions: ")
+        patientConditions = {}
+        i = 0
+        for i in patientConditionsInt :
+            isIInt = i.isdigit()
+            if not(isIInt) or int(i) < 1 or int(i) > 3 :
+                print()
+                print("You entered an incorrect character.\nPlease choose again.")
+                input("Press enter to proceed.")
+                medicalConditionsChoice()
+            else :
+                patientConditions[int(i)] = conditionsList[int(i)]
+        print()
+        print("Are these side effects correct?\n",patientConditions)
+        conditionsCheck = input("Enter 'y' for yes or any other character for no: ")
+        if conditionsCheck == "y" or conditionsCheck == "Y" :
             print()
-            print("You entered an incorrect character.\nPlease choose again.")
+            immuneCompromised()
+        else :
+            print("You selected an incorrect option.\nPlease choose again.")
             input("Press enter to proceed.")
             medicalConditionsChoice()
-        else :
-            patientConditions[int(i)] = conditionsList[int(i)]
-    print()
-    print("Are these side effects correct?\n",patientConditions)
-    conditionsCheck = input("Enter 'y' for yes or any other character for no: ")
-    if conditionsCheck == "y" or conditionsCheck == "Y" :
-        print()
-        immuneCompromised()
-    else :
-        print("You selected an incorrect option.\nPlease choose again.")
-        input("Press enter to proceed.")
-        medicalConditionsChoice()
 
 #4
 #List of immuno compromisers
-immuneCompromiseList = {
-    1:"HIV/AIDS",
-    2:"TB"
-}
+
+    immuneCompromiseList = {
+        1:"HIV/AIDS",
+        2:"TB"
+    }
 
 #Function displaying and inquiring if the patient is immuno compromised
-def immuneCompromised() :
-    print("Have you become immune compromised in any of the following ways?\n",immuneCompromiseList)
+
+    def immuneCompromised() :
+        print("Have you become immune compromised in any of the following ways?\n",immuneCompromiseList)
 
 #Function specifying
+
     patientImmuneCompromisedInt = input("Enter the numbers that corresponds with the immune compromises, or enter 'n' for no, or '0' to exit: ")
     patientImmuneCompromised = {}
 
 #Function validating choices
+
     i = 0
     immuneCompromise = False
     for i in patientImmuneCompromisedInt :
@@ -473,11 +490,13 @@ def immuneCompromised() :
 
 #5
 #Function inquiring about the reception of filarial prevention tablets 
-def filarialPrevention() :
-    print("Have you received filarial prevention tablets in the past two (2) months?")
-    filarialPreventionCheck = input("Enter 'y' for yes, 'n' for no, or '0' to exit: ")
+
+    def filarialPrevention() :
+        print("Have you received filarial prevention tablets in the past two (2) months?")
+        filarialPreventionCheck = input("Enter 'y' for yes, 'n' for no, or '0' to exit: ")
 
 #Function Verifying the reception of filarial prevention tablets
+
     if filarialPreventionCheck == "y" or filarialPreventionCheck == "Y" or filarialPreventionCheck == "n" or filarialPreventionCheck == "N" : 
         if filarialPreventionCheck == "y" or filarialPreventionCheck == "Y" :
             print()
@@ -503,64 +522,68 @@ def filarialPrevention() :
 
 #6
 #List of other vaccines
-otherVaccinesList = {
-    1:"Tetanus Vaccine",
-    2:"Yellow Fever Vaccine"
-}
+
+    otherVaccinesList = {
+        1:"Tetanus Vaccine",
+        2:"Yellow Fever Vaccine"
+    }
 
 #Asking if patient has had other vaccines.
-def otherVaccines() :
-    print("In the last two (2) months, have you received any of the following vaccines?\n",otherVaccinesList)
-    patientOtherVaccinesInt = input("Enter the corresponding numbers, or 'n' for no, or '0' to exit: ")
-    patientOtherVaccines = {}
-    vaccinated = False
-    i = 0
-    for i in patientOtherVaccinesInt :
-        isIInt = i.isdigit()
-        if not(isIInt) and i == "n" or not(isIInt) and i == "N" :
-            print()
-            print("You did not receive any of the listed vaccinations in the past two (2) months.")
-            input("Press enter to proceed.")
-            print()
-            conclude()
-        elif not(isIInt) and i != "n" or not(isIInt) and i != "N" or i < "0" or i > "2":
-            print()
-            print("You entered an incorrect character. Please choose again.")
-            input("Press enter to proceed.")
-            print()
-            otherVaccines()
-        elif i == "0" :
-            print()
-            print("Have a great day.")
-            exit()
-        elif isIInt and int(i) > 0 or isIInt and int(i) < 3 :
-            patientOtherVaccines[int(i)] = otherVaccinesList[int(i)]
-            vaccinated = True
-    if vaccinated :    
-        print("The following vaccines are what you selected \n",patientOtherVaccines)
-        print("Is this correct?")
-        otherVaccinesCheck = input("Enter 'y' for yes, or any other character for no: ")
-        if otherVaccinesCheck == "y" or otherVaccinesCheck == "Y" :
-            print()
-            print("You verified your selection of",patientOtherVaccines)
-            input("Press enter to proceed.")
-            print()
-            conclude()
-        else:
-            print()
-            print("You selected an incorrect vaccine.\nPlease choose again.")
-            print()
-            input("Press enter to proceed.")
-            otherVaccines()
+
+    def otherVaccines() :
+        print("In the last two (2) months, have you received any of the following vaccines?\n",otherVaccinesList)
+        patientOtherVaccinesInt = input("Enter the corresponding numbers, or 'n' for no, or '0' to exit: ")
+        patientOtherVaccines = {}
+        vaccinated = False
+        i = 0
+        for i in patientOtherVaccinesInt :
+            isIInt = i.isdigit()
+            if not(isIInt) and i == "n" or not(isIInt) and i == "N" :
+                print()
+                print("You did not receive any of the listed vaccinations in the past two (2) months.")
+                input("Press enter to proceed.")
+                print()
+                conclude()
+            elif not(isIInt) and i != "n" or not(isIInt) and i != "N" or i < "0" or i > "2":
+                print()
+                print("You entered an incorrect character. Please choose again.")
+                input("Press enter to proceed.")
+                print()
+                otherVaccines()
+            elif i == "0" :
+                print()
+                print("Have a great day.")
+                exit()
+            elif isIInt and int(i) > 0 or isIInt and int(i) < 3 :
+                patientOtherVaccines[int(i)] = otherVaccinesList[int(i)]
+                vaccinated = True
+        if vaccinated :    
+            print("The following vaccines are what you selected \n",patientOtherVaccines)
+            print("Is this correct?")
+            otherVaccinesCheck = input("Enter 'y' for yes, or any other character for no: ")
+            if otherVaccinesCheck == "y" or otherVaccinesCheck == "Y" :
+                print()
+                print("You verified your selection of",patientOtherVaccines)
+                input("Press enter to proceed.")
+                print()
+                conclude()
+            else:
+                print()
+                print("You selected an incorrect vaccine.\nPlease choose again.")
+                print()
+                input("Press enter to proceed.")
+                otherVaccines()
 
 #Conclusion/End
-def conclude() :
-   print("Have a microchip full Chirstmas(joke) and a covid free new year(hopefully)")
-   print("Happy Cryslyr")
-   input("Press enter to proceed/exit")
-   exit()
+
+    def conclude() :
+       print("Have a microchip full Chirstmas(joke) and a covid free new year(hopefully)")
+       print("Happy Cryslyr")
+       input("Press enter to proceed/exit")
+       exit()
 
 
 #Initiation point
-dose()
+    
+    dose()
 
