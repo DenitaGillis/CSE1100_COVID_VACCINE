@@ -93,6 +93,9 @@ if dose in ('Second', 'second'):
 ###QUESTION 4 amended (David Constantine)
 from time import sleep
 
+vaccines = ['1. AstraZeneca: ', '2. Pfizer: ', '3. Moderna: ', '4. Sinopharm: ', '5. Sputnik V ']
+
+
 class Question:
     def __init__(self, number, question, answer):
         self.number = number
@@ -122,7 +125,14 @@ class Question:
             return True
         else:
             return False
-        
+
+def validateNum(num):
+    if num.isnumeric():
+        if int(num) > 0 and int(num) <= 5:
+            return True
+        else:
+            return False
+    return False
 
 q1 = Question(1, 'Are you feeling ill today?', None)
 q1.showQuestion()
@@ -132,37 +142,44 @@ while(q1.validateInput(q1.setAnswer(input('Enter yes or no: '))) == False):
 else:
     q1.show()
 
-sleep(2)
+sleep(1.5)
 
 q2a = Question(2.1, 'Have you ever received a Covid 19 vaccine?',None)
 q2a.showQuestion()
 q2b = Question(2.2,'Select the number corresponding to the Vaccine that you took.',None)
+
+
+
+
 while(q2a.validateInput(q2a.setAnswer(input('Enter yes or no: '))) == False):
     q2a.showQuestion()
     
 if q2a.answer == 'yes':
-        
-    
-    q2b.showQuestion()
-    
-    vaccines = ['1. AstraZeneca: ', '2. Pfizer: ', '3. Moderna: ', '4. Sinopharm: ', '5. Sputnik V ']
+    q2b.showQuestion()        
 
     for i in vaccines:
         print(i)
 
     vaxnum = input('Vaccine number: ')
+    while(validateNum(vaxnum)==False):
+        vaxnum = input('Vaccine number: ')
 
-    match vaxnum:
+    match int(vaxnum):
         case 1:
             q2b.setAnswer('AstraZeneca')
+
         case 2:
             q2b.setAnswer('Pfizer')
+
         case 3:
             q2b.setAnswer('Moderna')
+
         case 4:
             q2b.setAnswer('Sinopharm')
+
         case 5:
             q2b.setAnswer('Sputnik V')
+
         case _:
             q2b.showQuestion()
 
@@ -170,10 +187,10 @@ if q2a.answer == 'yes':
 
 else:
     q2b.setAnswer('no')
-
     q2a.show()
         
-         
+
+
 q3 = Question(3, 'Do you have any form of Identification such as your National Id Card or your Passport?',None)
 q3.showQuestion()
 
@@ -182,7 +199,7 @@ while(q3.validateInput(q3.setAnswer(input('Enter yes or no: '))) == False):
 else:
     q3.show()
 
-sleep(2)
+sleep(1.5)
 
 q4 = Question(4, 'Do you have a history of Myocarditis, pericarditis, bleeding disorders?',None)
 q4.showQuestion()
@@ -235,16 +252,16 @@ else:
 
 sleep(2)
 
-q8b = Question(8.2, '''Have you ever had an allergic reaction to a component of the COVID-19 vaccine,like Polyethylene glycol (PEG),
-which is found in some medications, such as laxatives and preparations for colonoscopy procedures''',None)
-q8a.showQuestion()
+q8b = Question(8.2, '''Have you ever had an allergic reaction to a component of the COVID-19 vaccine,like Polysorbate, which is found in some vaccines, film coated tablets, 
+and intravenous steroids''',None)
+q8b.showQuestion()
 
 while(q8b.validateInput(q8b.setAnswer(input('Enter yes or no: '))) == False):
     q8b.showQuestion()
 else:
     q8b.show()
 
-sleep(2)
+sleep(1.5)
 
 q9 = Question(9, 'Have you ever had an allergic reaction to another vaccine (other than COVID-19 vaccine) or an injectable medication?',None)
 q9.showQuestion()
@@ -254,7 +271,7 @@ while(q9.validateInput(q9.setAnswer(input('Enter yes or no: '))) == False):
 else:
     q9.show()
 
-sleep(2)
+sleep(1.5)
 
 q10 = Question(10, 'In the last two months have you received filarial prevention tablets?',None)
 q10.showQuestion()
@@ -264,7 +281,7 @@ while(q10.validateInput(q10.setAnswer(input('Enter yes or no: '))) == False):
 else:
     q10.show()
 
-sleep(2)
+sleep(1.5)
 
 q11 = Question(11, 'In the last two months have you received a tetanus vaccine or yellow fever vaccine?',None)
 q11.showQuestion()
@@ -272,6 +289,24 @@ q11.showQuestion()
 while(q11.validateInput(q11.setAnswer(input('Enter yes or no: '))) == False):
     q11.showQuestion()
 else:
+    q11.show()
+
+sleep(1.5)
+
+q1.show()
+q2a.show()
+if q2a.answer =='yes':
+    q2b.show()
+else: 
+    q3.show()
+    q4.show()
+    q5.show()
+    q6.show()
+    q7.show()
+    q8a.show()
+    q8b.show()
+    q9.show()
+    q10.show()
     q11.show()
 
 ########################################################################################################################################
