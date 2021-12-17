@@ -89,6 +89,192 @@ print ('\n\n'choice) #this line is just to test the coice variable and can be di
 if dose in ('Second', 'second'):
     print ("You have chosen Second dose")
     
+####################################################################################################################################
+###QUESTION 4 amended (David Constantine)
+from time import sleep
+
+class Question:
+    def __init__(self, number, question, answer):
+        self.number = number
+        self.question = question
+        self.answer = answer
+
+
+    def showQuestion(self):
+        print('\n{}.{}'.format(self.number, self.question))
+
+    def setAnswer(self, answer):
+        self.answer = answer
+
+    def showAnswer(self):
+        print('\nAnswer was: {}\n'.format(self.answer))
+
+    def getAnswer(self):
+        return self.answer
+
+    def show(self):
+        print('\nQuestion{}.{} and\nAnswer was: {}\n'.format(self.number, self.question, self.answer))
+
+    def validateInput(self, answer):
+        if self.answer == 'no'  or self.answer == 'No' or self.answer == 'NO':
+            return True
+        elif self.answer == 'yes' or self.answer == 'Yes' or self.answer == 'YES':
+            return True
+        else:
+            return False
+        
+
+q1 = Question(1, 'Are you feeling ill today?', None)
+q1.showQuestion()
+
+while(q1.validateInput(q1.setAnswer(input('Enter yes or no: '))) == False):
+    q1.showQuestion()
+else:
+    q1.show()
+
+sleep(2)
+
+q2a = Question(2.1, 'Have you ever received a Covid 19 vaccine?',None)
+q2a.showQuestion()
+q2b = Question(2.2,'Select the number corresponding to the Vaccine that you took.',None)
+while(q2a.validateInput(q2a.setAnswer(input('Enter yes or no: '))) == False):
+    q2a.showQuestion()
+    
+if q2a.answer == 'yes':
+        
+    
+    q2b.showQuestion()
+    
+    vaccines = ['1. AstraZeneca: ', '2. Pfizer: ', '3. Moderna: ', '4. Sinopharm: ', '5. Sputnik V ']
+
+    for i in vaccines:
+        print(i)
+
+    vaxnum = input('Vaccine number: ')
+
+    match vaxnum:
+        case 1:
+            q2b.setAnswer('AstraZeneca')
+        case 2:
+            q2b.setAnswer('Pfizer')
+        case 3:
+            q2b.setAnswer('Moderna')
+        case 4:
+            q2b.setAnswer('Sinopharm')
+        case 5:
+            q2b.setAnswer('Sputnik V')
+        case _:
+            q2b.showQuestion()
+
+    q2b.show()
+
+else:
+    q2b.setAnswer('no')
+
+    q2a.show()
+        
+         
+q3 = Question(3, 'Do you have any form of Identification such as your National Id Card or your Passport?',None)
+q3.showQuestion()
+
+while(q3.validateInput(q3.setAnswer(input('Enter yes or no: '))) == False):
+    q3.showQuestion()
+else:
+    q3.show()
+
+sleep(2)
+
+q4 = Question(4, 'Do you have a history of Myocarditis, pericarditis, bleeding disorders?',None)
+q4.showQuestion()
+
+while(q4.validateInput(q4.setAnswer(input('Enter yes or no: '))) == False):
+    q4.showQuestion()
+else:
+    q4.show()
+
+sleep(2)
+
+q5 = Question(5, 'Are you Currently Pregnant or Breastfeeding? ',None)
+q5.showQuestion()
+
+while(q5.validateInput(q5.setAnswer(input('Enter yes or no: '))) == False):
+    q5.showQuestion()
+else:
+    q5.show()
+
+sleep(2)
+
+q6 = Question(6, 'Do you suffer from any condition that has compromised your immune system such as HIV/AIDS or TB',None)
+q6.showQuestion()
+
+while(q6.validateInput(q6.setAnswer(input('Enter yes or no: '))) == False):
+    q6.showQuestion()
+else:
+    q6.show()
+
+sleep(2)
+
+q7 = Question(7, 'Have you undergone surgery recently? ',None)
+q7.showQuestion()
+
+while(q7.validateInput(q7.setAnswer(input('Enter yes or no: '))) == False):
+    q7.showQuestion()
+else:
+    q7.show()
+
+sleep(2)
+
+q8a = Question(8.1, '''Have you ever had an allergic reaction to a component of the COVID-19 vaccine,like Polyethylene glycol (PEG),
+which is found in some medications, such as laxatives and preparations for colonoscopy procedures''',None)
+q8a.showQuestion()
+
+while(q8a.validateInput(q8a.setAnswer(input('Enter yes or no: '))) == False):
+    q8a.showQuestion()
+else:
+    q8a.show()
+
+sleep(2)
+
+q8b = Question(8.2, '''Have you ever had an allergic reaction to a component of the COVID-19 vaccine,like Polyethylene glycol (PEG),
+which is found in some medications, such as laxatives and preparations for colonoscopy procedures''',None)
+q8a.showQuestion()
+
+while(q8b.validateInput(q8b.setAnswer(input('Enter yes or no: '))) == False):
+    q8b.showQuestion()
+else:
+    q8b.show()
+
+sleep(2)
+
+q9 = Question(9, 'Have you ever had an allergic reaction to another vaccine (other than COVID-19 vaccine) or an injectable medication?',None)
+q9.showQuestion()
+
+while(q9.validateInput(q9.setAnswer(input('Enter yes or no: '))) == False):
+    q9.showQuestion()
+else:
+    q9.show()
+
+sleep(2)
+
+q10 = Question(10, 'In the last two months have you received filarial prevention tablets?',None)
+q10.showQuestion()
+
+while(q10.validateInput(q10.setAnswer(input('Enter yes or no: '))) == False):
+    q10.showQuestion()
+else:
+    q10.show()
+
+sleep(2)
+
+q11 = Question(11, 'In the last two months have you received a tetanus vaccine or yellow fever vaccine?',None)
+q11.showQuestion()
+
+while(q11.validateInput(q11.setAnswer(input('Enter yes or no: '))) == False):
+    q11.showQuestion()
+else:
+    q11.show()
+
+########################################################################################################################################
 #FIRST DOSE PROGRAM
 #############################################################################################################################################################
 # This is the code for questions 4 to 6. Done by Denita Gillis 
